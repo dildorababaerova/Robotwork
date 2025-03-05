@@ -10,6 +10,20 @@ if not cap.isOpened():
     print("Error opening the camera!")
     exit()
 
+
+
+def check_cameras():
+    # Try to open multiple cameras by index
+    for i in range(2):  # Check up to 5 cameras
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            print(f"Camera {i} is available.")
+            cap.release()
+        else:
+            print(f"Camera {i} is not available.")
+
+check_cameras()
+
 # Function to load a new graphic (e.g., a new image)
 def load_new_graphic(image_path):
     return cv2.imread(image_path)
